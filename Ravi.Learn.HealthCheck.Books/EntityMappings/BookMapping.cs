@@ -12,9 +12,9 @@ namespace Ravi.Learn.HealthCheck.Books.EntityMappings
             builder.ToTable("Books");
             builder.HasKey(book => book.Id);
             builder.HasIndex(book => book.Id).IsUnique(true);
-            builder.Property(book => book.Id).HasField("Key").IsRequired().ValueGeneratedOnAdd();
-            builder.Property(book => book.Name).HasMaxLength(250).IsRequired().HasField("Name");
-            builder.Property(book => book.AuthorId).HasField("AuthorKey");
+            builder.Property(book => book.Id).HasColumnName("Key").IsRequired().ValueGeneratedOnAdd();
+            builder.Property(book => book.Name).HasMaxLength(250).IsRequired();
+            builder.Property(book => book.AuthorId).HasColumnName("AuthorKey");
             base.Configure(builder);
         }
     }
